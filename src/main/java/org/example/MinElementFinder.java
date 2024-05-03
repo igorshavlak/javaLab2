@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class MinElementFinder {
 
-    private  final int NUM_THREADS = 20;
+    private  final int NUM_THREADS = 1;
     private  int[] array;
     private  int minElement = Integer.MAX_VALUE;
     private  int minElementIndex = -1;
@@ -16,13 +16,14 @@ public class MinElementFinder {
         array = new int[length];
         Random random = new Random();
         for (int i = 0; i < length; i++) {
-            array[i] = random.nextInt(100);
+            array[i] = random.nextInt(1000);
         }
-        System.out.println(Arrays.toString(array));
+        array[0] = -152;
+
     }
     public void arrayPartitioning() {
     long startTime = System.nanoTime();
-        generateArray(100);
+        generateArray(100000);
         int chunkSize = array.length / NUM_THREADS; // 5
         threads = new Thread[NUM_THREADS]; // 20
         for (int i = 0; i < NUM_THREADS; i++) {
